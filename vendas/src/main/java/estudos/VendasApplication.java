@@ -1,7 +1,6 @@
 package estudos;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,22 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VendasApplication {
 
-    @Autowired //injestão
-    @Qualifier("applicationName")
+    @Value("${application.name}") //irá utilizar o valor customizado no application.properties
     private String applicationName;
-
-    @Autowired //injestão
-    @Qualifier("otherApplicationName")
-    private String otherApplicationName;
 
     @GetMapping("/application")
     public String application(){
         return applicationName;
-    }
-
-    @GetMapping("/otherApplication")
-    public String otherApplication(){
-        return otherApplicationName;
     }
 
     @GetMapping("/hello")
