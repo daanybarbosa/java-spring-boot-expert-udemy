@@ -9,13 +9,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClientesService {
 
+    //Exemplo 1 - injeção direto na declaração do repository
+    //@Autowired
     private ClientesRepository repository; //referencia
 
-    //construtor com injeção
+    //Exemplo 2  - construtor com injeção
     @Autowired
     public ClientesService( ClientesRepository repository ){
         this.repository = repository;
     }
+
+    //Exemplo 3 - método Set
+    /*@Autowired
+    public void setRepository(ClientesRepository repository){
+        this.repository = repository;
+    }*/
 
     //public void salvarCliente(Object cliente){
     public void salvarCliente(Cliente cliente){
