@@ -5,8 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-@Configuration
-@Profile("development") //ira rodar apenas no ambiente de desenvolvimento
+//@Configuration
+//@Profile("development") //ira rodar apenas no ambiente de desenvolvimento
+@Development //annotation customizada de configuração
 public class MinhasConfiguration {
 
     @Bean
