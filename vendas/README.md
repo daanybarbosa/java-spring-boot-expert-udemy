@@ -28,14 +28,14 @@
 
 ## RESTFul API's com Spring Web
 
-- Implementar uma RESTFul API de um sistema completo 
+- Implementar uma RESTFul API de um sistema completo
 - Mapear recursos e subrecursos REST utilizando os preceitos RESTFul
 - Tratar erros de forma simples e bem especificada
 - Realizar operações POST, DELETE, GET, PUT, PATCH e retornar códigos de Status apropriados
 - Trabalhar com o Lombok project
 - Utilizar Spring Boot DevTools
 
- ## Bean Validation
+## Bean Validation
 
 - Utilizar a especificação Bean Validation
 - Criar Annotation e Validador customizado
@@ -54,6 +54,5 @@
 
 - Documentar a API utilizando o Swagger
 - Gerar build utilizando Fatjar ou WAR
-- Versionamento de código fonte utilizando Git e GitHub 
+- Versionamento de código fonte utilizando Git e GitHub
 - Deploy em nuvem
-
