@@ -7,10 +7,17 @@
 - Trabalhar com JPA Repositories
 - Fazer consultas utilizando Query Methods e @Query
 
+## Modelo de Negócio
+![](modelo-de-negocio.png)
+
 ## Comandos utilizados no Banco de Dados - H2
 ```
 create table cliente (
    id int not null primary key,
    nome varchar(100)
 ); 
+```
+
+```
+select * from cliente;
 ```
