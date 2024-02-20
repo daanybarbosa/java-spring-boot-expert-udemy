@@ -24,6 +24,18 @@ public class VendasApplication {
             List<Cliente> todosClientes = clientes.findAll();
             todosClientes.forEach(System.out::println); //imprimir todas os dados
 
+            System.out.println(" <--- Encontrar por Nome - SQL --->");
+            List<Cliente> encontrarPorNomeSQL = clientes.encontrarPorNomeSQL("Bruno");
+            encontrarPorNomeSQL.forEach(System.out::println);
+            List<Cliente> encontrarPorNomeSQLCliente = clientes.encontrarPorNomeSQL("Cliente");
+            encontrarPorNomeSQLCliente.forEach(System.out::println);
+
+            System.out.println(" <--- Encontrar por Nome - HQL --->");
+            List<Cliente> encontrarDaniele = clientes.encontrarPorNomeHQL("Daniele");
+            encontrarDaniele.forEach(System.out::println);
+            List<Cliente> encontrarCliente = clientes.encontrarPorNomeHQL("Cliente");
+            encontrarCliente.forEach(System.out::println);
+
             System.out.println(" <--- Localizando clientes --->");
             boolean existeDaniele = clientes.existsByNome("Daniele");
             boolean existeCliente = clientes.existsByNome("Cliente");
