@@ -24,11 +24,18 @@ public class VendasApplication {
             List<Cliente> todosClientes = clientes.findAll();
             todosClientes.forEach(System.out::println); //imprimir todas os dados
 
-            System.out.println(" <--- Localizando clientes --->");
+            System.out.println(" <--- Localizando clientes - encontrarPorNome --->");
+            List<Cliente> encontrarDaniele = clientes.encontrarPorNome("Daniele");
+            encontrarDaniele.forEach(System.out::println);
+
+            List<Cliente> encontrarCliente = clientes.encontrarPorNome("Cliente");
+            encontrarCliente.forEach(System.out::println);
+
+            System.out.println(" <--- Localizando clientes - existsByNome --->");
             boolean existeDaniele = clientes.existsByNome("Daniele");
             boolean existeCliente = clientes.existsByNome("Cliente");
-            System.out.println("Existe um cliente com o nome Daniele ? " + existeDaniele);
-            System.out.println("Existe um cliente com o nome Cliente ? " + existeCliente);
+            System.out.println("Existe um cliente com o nome Daniele? " + existeDaniele);
+            System.out.println("Existe um cliente com o nome Cliente? " + existeCliente);
 
             System.out.println("<--- Atualizando clientes --->");
             todosClientes.forEach(c -> {
