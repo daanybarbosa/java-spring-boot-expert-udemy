@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,6 +22,9 @@ public class Cliente {
 
     @Column(name = "nome", length = 100)
     private String nome;
+
+    @OneToMany(mappedBy = "cliente") //um cliente para muitos pedidos
+    private Set<Pedido> pedidos; //pedidos não pode se repetir
 
     public Cliente(){ };
 
