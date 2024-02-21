@@ -1,7 +1,7 @@
 package estudos;
 
 import estudos.domain.entity.Cliente;
-import estudos.domain.repositorio.Clientes;
+import estudos.domain.repository.Clientes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

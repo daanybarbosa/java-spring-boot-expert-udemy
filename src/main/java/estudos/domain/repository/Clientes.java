@@ -1,4 +1,4 @@
-package estudos.domain.repositorio;
+package estudos.domain.repository;
 
 import estudos.domain.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
