@@ -23,7 +23,13 @@ public class Cliente {
     @Column(name = "nome", length = 100)
     private String nome;
 
-    @OneToMany(mappedBy = "cliente") //um cliente para muitos pedidos
+    /**
+     * @OneToMany - um cliente para muitos pedidos
+     * Por default o fetch é LAZY (preguiçoso), ou seja, determinados objetos não serão
+     *  carregados do banco até que solicite explicidademente o carregamento deles, isso evita sobrecargar da aplicação com dados inuteis/não utilizados.
+     * O fetch EAGER (ansioso), ou seja, carrega todos os dados mesmo sem utiliza-los.
+     * */
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private Set<Pedido> pedidos; //pedidos não pode se repetir
 
     public Cliente(){ };

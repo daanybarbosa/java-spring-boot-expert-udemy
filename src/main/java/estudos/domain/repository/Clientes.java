@@ -32,4 +32,7 @@ public interface Clientes extends JpaRepository<Cliente, Integer> {
     Cliente findOneByNome(String nome); //se o nome do cliente for unico, vai retornar apenas com registro
 
     boolean existsByNome(String nome);
+
+    @Query(" select c from Cliente c left join fetch c.pedidos p where c.id = :id ")
+    Cliente findClienteFetchPedidos(@Param("id") Integer id);
 }

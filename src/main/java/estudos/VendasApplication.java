@@ -1,22 +1,49 @@
 package estudos;
 
 import estudos.domain.entity.Cliente;
+import estudos.domain.entity.Pedido;
 import estudos.domain.repository.Clientes;
+import estudos.domain.repository.Pedidos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootApplication
 public class VendasApplication {
 
     @Bean
-    public CommandLineRunner init(@Autowired Clientes clientes){
+    public CommandLineRunner init(
+            @Autowired Clientes clientes,
+            @Autowired Pedidos pedidos
+    ){
         return args -> {
 
+            System.out.println("<--- Criando pedido --->");
+            Cliente fulano = new Cliente("Fulano");
+            clientes.save(fulano);
+
+            Pedido p = new Pedido();
+            p.setCliente(fulano);
+            p.setDataPedido(LocalDate.now()); //data atual
+            p.setTotal(BigDecimal.valueOf(100)); //100,00
+
+            pedidos.save(p);
+
+            System.out.println(" <--- Salvando Pedido --->");
+            Cliente cliente = clientes.findClienteFetchPedidos(fulano.getId());
+            System.out.println(cliente);
+            System.out.println(cliente.getPedidos());
+
+            System.out.println(" <--- Encontrar pedidos por cliente --->");
+            pedidos.findByCliente(fulano).forEach(System.out::println);
+
+            // TODO: comentar a partir daqui para evitar erros na aplicação
             System.out.println("<--- Salvando clientes --->");
             clientes.save(new Cliente("Daniele"));
             clientes.save(new Cliente("Bruno"));
